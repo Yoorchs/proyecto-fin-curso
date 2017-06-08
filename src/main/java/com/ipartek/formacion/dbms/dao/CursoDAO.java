@@ -20,7 +20,7 @@ import com.ipartek.formacion.dbms.dao.interfaces.CursoIDAO;
 import com.ipartek.formacion.dbms.mappers.CursoMapper;
 import com.ipartek.formacion.dbms.persistence.Curso;
 
-@Repository("cursoDAO")
+@Repository("cursoDao")
 public class CursoDAO implements CursoIDAO {
 
 	@Autowired
@@ -54,7 +54,7 @@ public class CursoDAO implements CursoIDAO {
 
 	@Override
 	public List<Curso> getAll() {
-		final String SQL = "CALL alumnogetAll();";
+		final String SQL = "CALL cursoGetAll();";
 		List<Curso> cursos = null;
 		try {
 			cursos = jdbctemplate.query(SQL, new CursoMapper());
