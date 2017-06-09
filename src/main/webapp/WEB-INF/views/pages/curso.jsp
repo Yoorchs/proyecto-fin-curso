@@ -21,7 +21,7 @@
 		</div>
 		<c:set var="men" value="Editar"></c:set>
 		<c:set var="disable" value=""></c:set>
-		<c:if test="${curso.codigo == 0}">
+		<c:if test="${curso.codigo == -1}">
 			<c:set var="men" value="Crear"></c:set>
 			<c:set var="disable" value="hidden"></c:set>
 		</c:if>
