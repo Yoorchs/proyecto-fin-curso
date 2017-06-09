@@ -95,7 +95,7 @@ public class CursoDAO implements CursoIDAO {
 	}
 
 	@Override
-	public void delete(String codCurso) {
+	public void delete(int codCurso) {
 		String SQL = "cursoDelete";
 		this.jdbcCall = new SimpleJdbcCall(dataSource);
 		jdbcCall.withProcedureName(SQL);

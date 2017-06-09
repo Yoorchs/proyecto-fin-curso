@@ -38,16 +38,17 @@ public class CursoController {
 	}
 	
 	@RequestMapping(value = "/deleteCurso/{codCurso}")
-	public String delete(@PathVariable("id") String id) {
+	public String delete(@PathVariable("codCurso") int id) {
 		cS.delete(id);
 		return "redirect:/cursos";
 	}
 	
 	@RequestMapping(value = "/addCurso")
 	public String addAlumno(Model model) {
-		model.addAttribute("curso", new Curso());
-		LOGGER.info(new Curso().toString());
-		return "cursoform";
+		Curso curso = new Curso(); 
+		model.addAttribute("curso",curso);
+		cS.create(curso);
+		return "curso";
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)

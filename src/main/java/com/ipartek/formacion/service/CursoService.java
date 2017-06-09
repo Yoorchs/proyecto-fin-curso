@@ -34,7 +34,7 @@ public class CursoService implements CursoIService {
 
 	@Transactional
 	@Override
-	public void delete(String codCurso) {
+	public void delete(int codCurso) {
 		cursoIDao.delete(codCurso);
 
 	}

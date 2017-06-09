@@ -45,5 +45,5 @@ public interface CursoIDAO extends DAOSetter{
 	 * Metodo que borra de la BBDD un <code>Curso</code> identificado por el codigo de Curso
 	 * @param codCurso
 	 */
-	public void delete(String codCurso);
+	public void delete(int codCurso);
 }

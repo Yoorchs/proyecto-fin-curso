@@ -28,9 +28,9 @@ public interface CursoIService {
 	
 	/**
 	 * 
-	 * @param codCurso
+	 * @param id
 	 */
-	public void delete(String codCurso);
+	public void delete(int id);
 	
 	/**
 	 * 
