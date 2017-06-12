@@ -46,4 +46,10 @@ public interface CursoIDAO extends DAOSetter{
 	 * @param codCurso
 	 */
 	public void delete(int codCurso);
+
+	/**
+	 * Metodo que obtiene de la BBDD un <code>Curso</code> identificado por el codigo (Valor alfanumérico) de Curso
+	 * @param codCurso
+	 */
+	public Curso getByCodigo(String codCurso);
 }

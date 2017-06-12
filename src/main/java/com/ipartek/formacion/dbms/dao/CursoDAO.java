@@ -103,4 +103,18 @@ public class CursoDAO implements CursoIDAO {
 		LOGGER.info("Borrando el curso con codigo " + codCurso);
 		jdbcCall.execute(in);
 	}
+
+	@Override
+	public Curso getByCodigo(String codCurso) {
+		String SQL = "CALL cursoGetByCodigo(?);";
+		Curso curso = null;
+		try {
+			curso = jdbctemplate.queryForObject(SQL, new CursoMapper(), new Object[] { codCurso });
+			LOGGER.info(curso.toString());
+		} catch (EmptyResultDataAccessException e) {
+			curso = null;
+			LOGGER.info("No se ha encontrado el Curso con codigo: " + codCurso  + " " + e.getMessage());
+		}
+		return curso;
+	}
 }

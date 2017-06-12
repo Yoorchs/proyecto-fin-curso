@@ -29,6 +29,9 @@
 	
 	<context:component-scan base-package="com.ipartek.formacion" />
 	
+	<!--Ruta de las properties con las constantes -->
+	<context:property-placeholder location="classpath*:/constantes/constantes.properties"/>
 	
+	<beans:bean id="cursoValidator" class="com.ipartek.formacion.controller.validator.CursoValidator"/>
 	
 </beans:beans>

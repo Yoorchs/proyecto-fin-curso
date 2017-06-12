@@ -45,4 +45,9 @@ public class CursoService implements CursoIService {
 		return cursoIDao.create(curso);
 	}
 
+	@Override
+	public Curso getByCodigo(String codCurso) {
+		return cursoIDao.getByCodigo(codCurso);
+	}
+
 }

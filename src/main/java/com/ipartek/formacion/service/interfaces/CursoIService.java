@@ -38,4 +38,11 @@ public interface CursoIService {
 	 * @return
 	 */
 	public Curso create(Curso curso);
+
+	/**
+	 * 
+	 * @param codCurso
+	 * @return Curso : el resuotado de la select en BBDD buscando por codigo de curso
+	 */
+	public Curso getByCodigo(String codCurso);
 }

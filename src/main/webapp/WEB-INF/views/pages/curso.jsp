@@ -14,10 +14,12 @@
 		<div class="row">
 			<form:label class="col-xs-3" cssClass="" path="nomCurso">Nombre del Curso: </form:label>
 			<form:input class="col-xs-3" placeholder="Introduce el nombre del curso" path="nomCurso" cssErrorClass="" cssClass="" />
+			<form:errors class="col-xs-3" path="nomCurso" cssClass="text-danger" />
 		</div>
 		<div class="row">
 			<form:label class="col-xs-3" path="codCurso">Codigo del curso: </form:label>
 			<form:input class="col-xs-3" placeholder="Introduce el codigo del curso" path="codCurso" cssErrorClass="" cssClass="" />
+			<form:errors class="col-xs-3" path="codCurso" cssClass="text-danger" />
 		</div>
 		<c:set var="men" value="Editar"></c:set>
 		<c:set var="disable" value=""></c:set>
