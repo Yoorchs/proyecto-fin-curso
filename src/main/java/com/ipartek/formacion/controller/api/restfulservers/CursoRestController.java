@@ -24,8 +24,8 @@ public class CursoRestController {
 	@Inject
 	CursoService cS;
 
-	@RequestMapping(value = "/{codCurso}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-	public ResponseEntity<List<Curso>> getByCodCurso(@PathVariable("codCurso") String codigo){
+	@RequestMapping(value = "/{cod}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<List<Curso>> getByCodCurso(@PathVariable("cod")String codigo){
 		List<Curso> cursos = cS.getByCodigo(codigo);
 		ResponseEntity<List<Curso>> response = null;
 		if(cursos == null || cursos.isEmpty()){

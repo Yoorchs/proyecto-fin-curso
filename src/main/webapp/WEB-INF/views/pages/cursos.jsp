@@ -1,6 +1,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script type="text/javascript" src="resources/js/cursos.js"></script>
 
 	<div class="row">
 		<span class="col-xs-2 hidden">Codigo</span> 
@@ -26,7 +27,30 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
-	<div>
+	<div class="row">
 		<a class="btn col-xs-2 btn-info" href="<c:url value = '/cursos/addCurso'/>">Nuevo Curso</a>
 	</div>
+	<br><br>
+	<div>
+		<form>
+			<div class="row">
+				<input type="text" name="buscador" id="buscador" class="col-xs-3">
+			</div>
+			<div class="row">
+				<input type="button" value="Buscar" id="boton" class="btn btn-info col-xs-1">
+			</div>
+		</form>
+	</div>
+	
+	<div>
+		 <table id="tabla">
+		 <thead> RESULTADOS </thead>
+			  <tr>
+			    <th>Nombre</th>
+			    <th>Codigo</th>
+			  </tr>
+		</table> 
+	</div>
+	
+	
 	

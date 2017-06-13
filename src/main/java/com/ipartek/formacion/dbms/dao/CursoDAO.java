@@ -109,7 +109,7 @@ public class CursoDAO implements CursoIDAO {
 		String SQL = "CALL cursoGetByCodigo(?);";
 		List<Curso> cursos = null;
 		try {
-			cursos = jdbctemplate.query(SQL, new CursoMapper(), new Object[] { "%" + codCurso + "%" });
+			cursos = jdbctemplate.query(SQL, new CursoMapper(), new Object[] { codCurso });
 			LOGGER.info(cursos.toString());
 		} catch (EmptyResultDataAccessException e) {
 			cursos = null;
