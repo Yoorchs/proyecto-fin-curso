@@ -105,16 +105,16 @@ public class CursoDAO implements CursoIDAO {
 	}
 
 	@Override
-	public Curso getByCodigo(String codCurso) {
+	public List<Curso> getByCodigo(String codCurso) {
 		String SQL = "CALL cursoGetByCodigo(?);";
-		Curso curso = null;
+		List<Curso> cursos = null;
 		try {
-			curso = jdbctemplate.queryForObject(SQL, new CursoMapper(), new Object[] { codCurso });
-			LOGGER.info(curso.toString());
+			cursos = jdbctemplate.query(SQL, new CursoMapper(), new Object[] { "%" + codCurso + "%" });
+			LOGGER.info(cursos.toString());
 		} catch (EmptyResultDataAccessException e) {
-			curso = null;
+			cursos = null;
 			LOGGER.info("No se ha encontrado el Curso con codigo: " + codCurso  + " " + e.getMessage());
 		}
-		return curso;
+		return cursos;
 	}
 }

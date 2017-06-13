@@ -44,5 +44,5 @@ public interface CursoIService {
 	 * @param codCurso
 	 * @return Curso : el resuotado de la select en BBDD buscando por codigo de curso
 	 */
-	public Curso getByCodigo(String codCurso);
+	public List<Curso> getByCodigo(String codCurso);
 }

@@ -51,5 +51,5 @@ public interface CursoIDAO extends DAOSetter{
 	 * Metodo que obtiene de la BBDD un <code>Curso</code> identificado por el codigo (Valor alfanumérico) de Curso
 	 * @param codCurso
 	 */
-	public Curso getByCodigo(String codCurso);
+	public List<Curso> getByCodigo(String codCurso);
 }

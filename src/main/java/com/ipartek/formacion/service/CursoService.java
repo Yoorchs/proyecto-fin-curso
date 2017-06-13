@@ -46,7 +46,7 @@ public class CursoService implements CursoIService {
 	}
 
 	@Override
-	public Curso getByCodigo(String codCurso) {
+	public List<Curso> getByCodigo(String codCurso) {
 		return cursoIDao.getByCodigo(codCurso);
 	}
 
