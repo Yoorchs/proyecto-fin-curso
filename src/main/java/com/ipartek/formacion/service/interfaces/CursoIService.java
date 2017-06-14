@@ -6,6 +6,9 @@ import com.ipartek.formacion.dbms.persistence.Curso;
 
 public interface CursoIService {
 
+	
+	public int cargarCSV(); 
+
 	/**
 	 * 
 	 * @param codCurso

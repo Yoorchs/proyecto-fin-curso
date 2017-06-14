@@ -61,12 +61,11 @@ private Validator validator = null;
 	public String addAlumno(Model model) {
 		Curso curso = new Curso(); 
 		model.addAttribute("curso",curso);
-		cS.create(curso);
 		return "curso";
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String saveCurso(Model model, @ModelAttribute("curso") @Validated Curso curso, BindingResult bindingresult) {
+	public String saveCurso(@ModelAttribute("curso") @Validated Curso curso, BindingResult bindingresult) {
 		String destino = "";
 		if (bindingresult.hasErrors()) {
 			LOGGER.info("Errores al crear el curso");
@@ -82,5 +81,11 @@ private Validator validator = null;
 			}
 		}
 		return destino;
+	}
+	
+	@RequestMapping(value = "/cargar")
+	public String cargarCSV(){
+		cS.cargarCSV();
+		return "redirect:/cursos";
 	}
 }

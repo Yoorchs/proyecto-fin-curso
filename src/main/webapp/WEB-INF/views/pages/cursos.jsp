@@ -2,6 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script type="text/javascript" src="resources/js/cursos.js"></script>
+	
+	
+	<div class="row">
+		<a class="btn btn-info col-xs-1" href= "<c:url value='/cursos/cargar'/>"> CARGAR CSV </a>	
+	</div>
+
 
 	<div class="row">
 		<span class="col-xs-2 hidden">Codigo</span> 
@@ -17,8 +23,8 @@
 						<span class="col-xs-2 hidden">${curso.codigo}</span>
 						<span class="col-xs-2">${curso.nomCurso}</span> 
 						<span class="col-xs-2">${curso.codCurso}</span>
-						<a class="btn col-xs-2 btn-info" href="<c:url value = '/cursos/${curso.codigo}'/>">Editar</a>
-						<a class="btn col-xs-2 btn-warning" href="<c:url value = '/cursos/deleteCurso/${curso.codigo}'/>">Borrar</a>
+						<a class="btn col-xs-1 btn-info" href="<c:url value = '/cursos/${curso.codigo}'/>">Editar</a>
+						<a class="btn col-xs-1 btn-warning" href="<c:url value = '/cursos/deleteCurso/${curso.codigo}'/>">Borrar</a>
 					</div>
 				</c:forEach>
 			</c:when>
@@ -43,7 +49,7 @@
 	</div>
 	
 	<div>
-		 <table id="tabla">
+		 <table id="tabla" class="table">
 		 <thead> RESULTADOS </thead>
 			  <tr>
 			    <th>Nombre</th>
