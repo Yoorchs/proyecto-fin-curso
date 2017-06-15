@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-06-2017 a las 16:08:08
+-- Tiempo de generación: 15-06-2017 a las 18:10:37
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -24,7 +24,7 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `cursoCreate`(IN `pcodCurso` VARCHAR(25) CHARSET utf8, IN `pnomCurso` VARCHAR(25) CHARSET utf8, OUT `pcodigo` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `cursoCreate`(IN `pcodCurso` VARCHAR(250) CHARSET utf8, IN `pnomCurso` VARCHAR(250) CHARSET utf8, OUT `pcodigo` INT)
     NO SQL
 BEGIN
 	INSERT INTO `cursos` ( 
@@ -57,14 +57,13 @@ BEGIN
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cursoGetByCodigo`(IN `pcodCurso` VARCHAR(150))
-    NO SQL
 BEGIN
 	SELECT 
     `codigo`,
     `codCurso`,
     `nomcurso`
     FROM `cursos`
-	WHERE `codCurso` LIKE `pcodCurso`;
+	WHERE `codCurso` LIKE CONCAT('%', LOWER(pcodCurso), '%');
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cursoGetById`(IN `pcodCurso` INT)
@@ -98,19 +97,9 @@ DELIMITER ;
 CREATE TABLE IF NOT EXISTS `cursos` (
   `codigo` int(9) NOT NULL AUTO_INCREMENT COMMENT 'Identificador unico de la tabla',
   `codCurso` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `nomcurso` varchar(150) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Descripcion de curso',
+  `nomcurso` varchar(250) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Descripcion de curso',
   PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=29 ;
-
---
--- Volcado de datos para la tabla `cursos`
---
-
-INSERT INTO `cursos` (`codigo`, `codCurso`, `nomcurso`) VALUES
-(9, 'dfg', 'dfg'),
-(16, '2', 'dfdf'),
-(26, 'dfgdfaaaa', 'mono'),
-(27, 'fdgdfgdfg', 'mono');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

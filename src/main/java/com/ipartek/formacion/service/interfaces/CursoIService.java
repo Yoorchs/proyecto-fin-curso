@@ -6,7 +6,10 @@ import com.ipartek.formacion.dbms.persistence.Curso;
 
 public interface CursoIService {
 
-	
+	/**
+	 * Metodo para cargar el listado de cursos del CSV  a la BBDD
+	 * @return
+	 */
 	public int cargarCSV(); 
 
 	/**

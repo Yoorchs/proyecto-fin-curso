@@ -3,7 +3,6 @@ package com.ipartek.formacion.service;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -61,21 +60,28 @@ public class CursoService implements CursoIService {
 	@Override
 	public int cargarCSV() {
 		String separador = ";";
-		BufferedReader br = null; 
+		BufferedReader br = null;
 	      try {
 	         br =new BufferedReader(new FileReader("C:\\Desarrollo\\Git\\proyecto-fin-curso\\src\\main\\webapp\\resources\\csv\\cursos.csv"));
 	         String line = br.readLine();
-	         LOGGER.info(line);
 	         line = br.readLine();
-	         
+	         Curso curso = new Curso();
 	         while (null!=line) {
 	            String [] fields = line.split(separador);
-	            System.out.println(Arrays.toString(fields));
-	            line = br.readLine();
+	            try {
+					if(fields.length >8 && (null!=fields[1] || null!=fields[8])){
+						curso.setNomCurso(fields[1]);
+						curso.setCodCurso(fields[8]);
+						cursoIDao.create(curso);
+					}
+					line = br.readLine();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 	         }
 	         
 	      } catch (Exception e) {
-	    	  e.getMessage();
+	    	  e.printStackTrace();
 	      } finally {
 	         if (null!=br) {
 	            try {
@@ -87,5 +93,4 @@ public class CursoService implements CursoIService {
 	      }
 		return 0;
 	}
-
 }

@@ -3,7 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<body>
 	<header>
 		<h2>Detalle de Curso</h2>
 	</header>
@@ -30,4 +29,3 @@
 		<input type="submit" class="btn btn-default" value="${men}">
 		<a class="btn btn-info" href="<c:url value='/cursos'/>"> Volver</a>
 	</form:form>
-</body>
